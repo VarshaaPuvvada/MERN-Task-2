@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="form1" onsubmit="return validate()">
+        <label for="form-name">Name:</label>
+        <input type="text" style="margin-left:18px" name="form-name" id="form-name">
+        <p id="validate-name" style="color: red;padding-left: 70px;"></p>
+        
+        <label for="form-email">Email:</label>
+        <input type="email" style="margin-left:18px" name="form-email" id="form-email">
+        <p id="validate-email" style="color: red;padding-left: 70px;"></p>
+        
+        <label for="form-website">Website:</label>
+        <input type="url" style="margin-left:6px" name="form-website" id="form-website">
+        <p id="validate-website" style="color: red;padding-left: 70px;"></p>
+        
+        <span>Message:</span>
+        <textarea style="margin-left:3px" cols="25" rows="5" name="form-message" id="form-message"></textarea>
+        <p id="validate-message" style="color: red;padding-left: 70px;"></p>
+        
+        <button type="submit" style="margin-left:68px">Submit</button>
+    </form>
+    <script>
+        function validate() {
+            let isValid = true;
+
+            const name = document.forms["form1"]["form-name"].value;
+            const email = document.forms["form1"]["form-email"].value;
+            const website = document.forms["form1"]["form-website"].value;
+            const message = document.forms["form1"]["form-message"].value;
+
+            document.getElementById("validate-name").innerText = "";
+            document.getElementById("validate-email").innerText = "";
+            document.getElementById("validate-website").innerText = "";
+            document.getElementById("validate-message").innerText = "";
+
+            if (name === "") {
+                document.getElementById("validate-name").innerText = "This field is required";
+                isValid = false;
+            }
+
+            if (email === "") {
+                document.getElementById("validate-email").innerText = "A valid email address is required";
+                isValid = false;
+            }
+            else {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    document.getElementById("validate-email").innerText = "Invalid email format";
+                    isValid = false;
+                }
+            } 
+
+            if (website === "") {
+                document.getElementById("validate-website").innerText = "A valid URL is required";
+                isValid = false;
+            } 
+            else {
+                try {
+                    new URL(website);
+                } catch (e) {
+                    document.getElementById("validate-website").innerText = "Invalid URL format";
+                    isValid = false;
+                }
+            }
+            
+            if (message === "") {
+                document.getElementById("validate-message").innerText = "This field is required";
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>

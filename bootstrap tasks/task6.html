@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form class="form-vertical was-validated bg-light px-5 pb-2" novalidate>
+            <div class="form-group mt-2">
+                <label for="v1" class="form-label h6">Name</label>
+                <input type="text" id="v1" class="form-control" required>
+                <div id="v1" class="invalid-feedback">
+                    Name is required
+                </div>
+            </div>
+            <div class="form-group mt-2">
+                <label for="v2" class="form-label h6">Email</label>
+                <input type="email" id="v2"class="form-control" required>
+                <div id="v2" class="invalid-feedback">
+                    Email is required
+                </div>
+            </div>
+            <div class="form-group mt-2">
+                <label for="v3"class="form-label h6">Password</label>
+                <input type="password" id="v3" class="form-control" required>
+                <div id="v3" class="invalid-feedback">
+                    Password is required
+                </div>
+            </div>
+            <div class="form-group mt-2">
+                <label class="form-label h6">Hobbies</label>
+                    <select class="form-select">
+                        <option selected>&nbsp;</option>
+                        <option>Dancing</option>
+                        <option>Singing</option>
+                        <option>Travelling</option>
+                        <option>Drawing</option>
+                    </select>
+            </div>
+            
+            <div class="d-grid form-group d-block mt-4">
+                <button type="submit" class="btn btn-danger">Submit</button>
+            </div>
+            
+        </form>
+    </div>
+</body>
+</html>

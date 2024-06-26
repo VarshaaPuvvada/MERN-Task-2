@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #image {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        @keyframes moveForward {
+            from {
+                left: 0;
+            }
+            to {
+                left: calc(100% - 100px);
+            }
+        }
+
+        .move {
+            animation: moveForward 5s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <img src="./train.png" alt="train" id="image">
+    <br>
+    <div style="padding-left:100px">
+        <button type="button" onclick="start()">Start</button>
+        <button type="button" onclick="stop()">Stop</button>
+    </div>
+    <script>
+        const image = document.getElementById('image');
+
+        function start() {
+            image.classList.add('move');
+        }
+
+        function stop() {
+            image.classList.remove('move');
+        }
+    </script>
+</body>
+</html>
